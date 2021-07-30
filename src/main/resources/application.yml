@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/election
+    username: idea
+    password: rbd@021986
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8000
+
+keycloak:
+  realm: election-services
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: election-services-app
+  credentials:
+    secret: 40dd3c57-4def-418d-ac0d-c2111a092065
+  use-resource-role-mappings: true
+  bearer-only: true
+

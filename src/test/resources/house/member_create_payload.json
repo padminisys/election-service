@@ -1,0 +1,14 @@
+{
+  "username": "rupa",
+  "name": "rupa",
+  "mobile": "+91 9876543210",
+  "email": "rupa@padminisys.com",
+  "unit": "A1",
+  "address": "Malad West",
+  "aadhar": "789465132",
+  "pan": "APOIU123A",
+  "photoKey": "s3://mypic.jpg",
+  "house": {
+    "id": 1
+  }
+}

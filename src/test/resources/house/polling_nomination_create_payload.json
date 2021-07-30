@@ -1,0 +1,11 @@
+{
+  "symbol": "car",
+  "slogan": "tumbin",
+  "comment": "approve me",
+  "candidate": {
+    "id": 1
+  },
+  "pollingEvent": {
+    "id": 1
+  }
+}
