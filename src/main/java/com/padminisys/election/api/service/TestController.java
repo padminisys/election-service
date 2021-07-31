@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.security.RolesAllowed;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("test")
 public class TestController {
 
     @RequestMapping(value = "/anonymous", method = RequestMethod.GET)
