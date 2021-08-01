@@ -1,7 +1,10 @@
 # Election-Service
 Core Backend Services for conducting election.
 
-For local development , start a standalone keyclock server.
+For local development :
 
-Application developer requires to run local mysql server.
+Start a standalone keyclock server.
+Start mysql server.
+
+
 
