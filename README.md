@@ -5,3 +5,5 @@ Core Backend Services for conducting election.
 
 - Start a standalone keyclock server.
 - Start mysql server.
+
+You may use postman or Insomnia for API testing.
