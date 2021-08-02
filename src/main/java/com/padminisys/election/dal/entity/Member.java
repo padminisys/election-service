@@ -19,6 +19,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //todo consider removing this when username and email is same
     @Column(nullable = false, unique = true)
     private String username;
 
