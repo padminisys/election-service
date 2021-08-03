@@ -29,3 +29,8 @@ You may use postman or Insomnia for API testing.
 - Result publishes @specified time with vote stats
 - Vote stats like voting % - get stats
 - Vote casted notification email
+
+
+
+## Workflow:
+- Verify Email workflow with Keyclock integration
