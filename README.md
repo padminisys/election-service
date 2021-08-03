@@ -34,3 +34,4 @@ You may use postman or Insomnia for API testing.
 
 ## Workflow:
 - Verify Email workflow with Keyclock integration
+- User login
