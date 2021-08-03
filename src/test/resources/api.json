@@ -1,0 +1,1968 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Election management API",
+    "version": "V1",
+    "title": "Election Services",
+    "termsOfService": "Terms of service",
+    "contact": {
+      "name": "Ramanuj Dad",
+      "url": "www.padminisys.com",
+      "email": "ramanuj@padminisys.com"
+    },
+    "license": {
+      "name": "License of API",
+      "url": "API license URL"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "election-event-service",
+      "description": "Election Event Service"
+    },
+    {
+      "name": "house-service",
+      "description": "House Service"
+    },
+    {
+      "name": "member-service",
+      "description": "Member Service"
+    },
+    {
+      "name": "poll-participant-service",
+      "description": "Poll Participant Service"
+    },
+    {
+      "name": "polling-event-service",
+      "description": "Polling Event Service"
+    },
+    {
+      "name": "polling-nomination-service",
+      "description": "Polling Nomination Service"
+    },
+    {
+      "name": "test-controller",
+      "description": "Test Controller"
+    }
+  ],
+  "paths": {
+    "/election-event/create": {
+      "post": {
+        "tags": [
+          "election-event-service"
+        ],
+        "summary": "newElectionEvent",
+        "operationId": "newElectionEventUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "electionEvent",
+            "description": "electionEvent",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ElectionEvent"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ElectionEvent"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/house/create": {
+      "post": {
+        "tags": [
+          "house-service"
+        ],
+        "summary": "newHouse",
+        "operationId": "newHouseUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "house",
+            "description": "house",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/House"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/House"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/house/fetch": {
+      "get": {
+        "tags": [
+          "house-service"
+        ],
+        "summary": "getHouse",
+        "operationId": "getHouseUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/HouseResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/house/fetch/all": {
+      "get": {
+        "tags": [
+          "house-service"
+        ],
+        "summary": "getAllHouses",
+        "operationId": "getAllHousesUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HouseResponse"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/house/update": {
+      "post": {
+        "tags": [
+          "house-service"
+        ],
+        "summary": "updateHouse",
+        "operationId": "updateHouseUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "house",
+            "description": "house",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/House"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/House"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/member/create": {
+      "post": {
+        "tags": [
+          "member-service"
+        ],
+        "summary": "newMember",
+        "operationId": "newMemberUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "member",
+            "description": "member",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/member/fetch": {
+      "get": {
+        "tags": [
+          "member-service"
+        ],
+        "summary": "getMember",
+        "operationId": "getMemberUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MemberResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/member/fetch/house": {
+      "get": {
+        "tags": [
+          "member-service"
+        ],
+        "summary": "getMembers",
+        "operationId": "getMembersUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MemberResponse"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/member/update": {
+      "post": {
+        "tags": [
+          "member-service"
+        ],
+        "summary": "updateMember",
+        "operationId": "updateMemberUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "member",
+            "description": "member",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/polling-event/create": {
+      "post": {
+        "tags": [
+          "polling-event-service"
+        ],
+        "summary": "newPollingEvent",
+        "operationId": "newPollingEventUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "pollingEvent",
+            "description": "pollingEvent",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PollingEvent"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PollingEvent"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/polling-nomination/create": {
+      "post": {
+        "tags": [
+          "polling-nomination-service"
+        ],
+        "summary": "newPollingNomination",
+        "operationId": "newPollingNominationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "pollingNomination",
+            "description": "pollingNomination",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PollingNomination"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PollingNomination"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/polling-participant/create": {
+      "post": {
+        "tags": [
+          "poll-participant-service"
+        ],
+        "summary": "newPollParticipant",
+        "operationId": "newPollParticipantUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "pollParticipant",
+            "description": "pollParticipant",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PollParticipant"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PollParticipant"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/test/admin": {
+      "get": {
+        "tags": [
+          "test-controller"
+        ],
+        "summary": "getAdmin",
+        "operationId": "getAdminUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/test/all-user": {
+      "get": {
+        "tags": [
+          "test-controller"
+        ],
+        "summary": "getAllUser",
+        "operationId": "getAllUserUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/test/anonymous": {
+      "get": {
+        "tags": [
+          "test-controller"
+        ],
+        "summary": "getAnonymous",
+        "operationId": "getAnonymousUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/test/user": {
+      "get": {
+        "tags": [
+          "test-controller"
+        ],
+        "summary": "getUser",
+        "operationId": "getUserUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "account.keycloakSecurityContext.authorizationContext.granted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.authorizationContext.permissions[0].resourceId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.authorizationContext.permissions[0].resourceName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.authorizationContext.permissions[0].scopes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.accessTokenHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.acr",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.country",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.formattedAddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.locality",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.postalCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.region",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.address.streetAddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.audience",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.auth_time",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.authTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.birthdate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.category",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ACCESS",
+              "ADMIN",
+              "ID",
+              "INTERNAL",
+              "LOGOUT",
+              "USERINFO"
+            ]
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.claimsLocales",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.codeHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.emailVerified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.exp",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.expiration",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.expired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.familyName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.gender",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.givenName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.iat",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.issuedAt",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.issuedFor",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.issuer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.locale",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.middleName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.nbf",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.nickName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.nonce",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.notBefore",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.otherClaims",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.phoneNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.phoneNumberVerified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.picture",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.preferredUsername",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.profile",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.sessionState",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.stateHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.subject",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.updatedAt",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.website",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idToken.zoneinfo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.idTokenString",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.realm",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.accessTokenHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.acr",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.country",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.formattedAddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.locality",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.postalCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.region",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.address.streetAddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.allowedOrigins",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.audience",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.auth_time",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.authorization.permissions[0].resourceId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.authorization.permissions[0].resourceName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.authorization.permissions[0].scopes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.authTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.birthdate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.category",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ACCESS",
+              "ADMIN",
+              "ID",
+              "INTERNAL",
+              "LOGOUT",
+              "USERINFO"
+            ]
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.certConf.certThumbprint",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.claimsLocales",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.codeHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.emailVerified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.exp",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.expiration",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.expired",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.familyName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.gender",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.givenName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.iat",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.issuedAt",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.issuedFor",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.issuer",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.locale",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.middleName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.nbf",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.nickName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.nonce",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.notBefore",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.otherClaims",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.phoneNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.phoneNumberVerified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.picture",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.preferredUsername",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.profile",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.realmAccess.roles",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.realmAccess.verifyCaller",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.scope",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.sessionState",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.stateHash",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.subject",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.trustedCertificates",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.updatedAt",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.verifyCaller",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.website",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.token.zoneinfo",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "account.keycloakSecurityContext.tokenString",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "interactive",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ElectionEvent": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "frozenEvent": {
+          "$ref": "#/definitions/PollingEvent"
+        },
+        "house": {
+          "$ref": "#/definitions/House"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pollingEvents": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/PollingEvent"
+          }
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "ElectionEvent"
+    },
+    "House": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "electionEvents": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/ElectionEvent"
+          }
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "members": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Member"
+          }
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "House"
+    },
+    "HouseResponse": {
+      "type": "object",
+      "properties": {
+        "countOfElectionEvent": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "countOfMembers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "HouseResponse"
+    },
+    "Member": {
+      "type": "object",
+      "properties": {
+        "aadhar": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "type": "string"
+        },
+        "house": {
+          "$ref": "#/definitions/House"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pan": {
+          "type": "string"
+        },
+        "photoKey": {
+          "type": "string"
+        },
+        "pollParticipants": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/PollParticipant"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "PENDING",
+            "REJECTED",
+            "REVIEW"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "Member"
+    },
+    "MemberResponse": {
+      "type": "object",
+      "properties": {
+        "aadhar": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "email": {
+          "type": "string"
+        },
+        "house": {
+          "$ref": "#/definitions/HouseResponse"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pan": {
+          "type": "string"
+        },
+        "photoKey": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "PENDING",
+            "REJECTED",
+            "REVIEW"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "title": "MemberResponse"
+    },
+    "PollParticipant": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isEligible": {
+          "type": "boolean"
+        },
+        "member": {
+          "$ref": "#/definitions/Member"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "pollingEvent": {
+          "$ref": "#/definitions/PollingEvent"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "PollParticipant"
+    },
+    "PollingEvent": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "electionEvent": {
+          "$ref": "#/definitions/ElectionEvent"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isVoid": {
+          "type": "boolean"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pollParticipants": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/PollParticipant"
+          }
+        },
+        "pollingNominations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/PollingNomination"
+          }
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "PollingEvent"
+    },
+    "PollingNomination": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "nominationApprovalStatus": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "PENDING",
+            "REJECTED",
+            "REVIEW"
+          ]
+        },
+        "pollParticipant": {
+          "$ref": "#/definitions/PollParticipant"
+        },
+        "pollingEvent": {
+          "$ref": "#/definitions/PollingEvent"
+        },
+        "slogan": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "votes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Vote"
+          }
+        }
+      },
+      "title": "PollingNomination"
+    },
+    "Vote": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string"
+        },
+        "creationTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "pollParticipant": {
+          "$ref": "#/definitions/PollParticipant"
+        },
+        "pollingEvent": {
+          "$ref": "#/definitions/PollingEvent"
+        },
+        "pollingNomination": {
+          "$ref": "#/definitions/PollingNomination"
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Vote"
+    }
+  }
+}

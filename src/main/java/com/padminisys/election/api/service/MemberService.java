@@ -3,6 +3,7 @@ package com.padminisys.election.api.service;
 import com.padminisys.election.api.exception.ObjectNotFoundException;
 import com.padminisys.election.api.mappers.MemberMapper;
 import com.padminisys.election.api.model.response.MemberResponse;
+import com.padminisys.election.dal.entity.House;
 import com.padminisys.election.dal.entity.Member;
 import com.padminisys.election.dal.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import javax.annotation.security.RolesAllowed;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -69,7 +71,7 @@ public class MemberService {
     private MemberResponse getMemberResponse(Optional<Member> optionalMember) throws ObjectNotFoundException {
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
-            MemberResponse memberResponse = memberMapper.MemberToMemberResponse(member);
+            MemberResponse memberResponse = memberMapper.memberToMemberResponse(member);
             try {
                 memberResponse.setHouse(houseService.getHouse(Optional.of(member.getHouse().getId()), Optional.empty()));
             } catch (ObjectNotFoundException e) {
@@ -78,5 +80,23 @@ public class MemberService {
             return memberResponse;
         }
         throw new ObjectNotFoundException("Valid request parameter not provided.");
+    }
+
+    @RolesAllowed("admin")
+    @GetMapping("/fetch/house")
+    public @ResponseBody
+    List<MemberResponse> getMembers(@RequestParam Optional<Long> id) throws ObjectNotFoundException {
+        if (id.isPresent()) {
+            return getMemberResponses(memberRepository.findMembersByHouse(new House(id.get())));
+        }
+        throw new ObjectNotFoundException("Valid request parameter not provided.");
+    }
+
+    private List<MemberResponse> getMemberResponses(List<Member> members) throws ObjectNotFoundException {
+        if (!members.isEmpty()) {
+            return memberMapper.membersToMemberResponses(members);
+        } else {
+            throw new ObjectNotFoundException("Valid request parameter not provided.");
+        }
     }
 }

@@ -14,6 +14,10 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {"members", "electionEvents"})
 public class House {
 
+    public House(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

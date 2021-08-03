@@ -6,7 +6,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface MemberMapper {
-    MemberResponse MemberToMemberResponse(Member member);
+    MemberResponse memberToMemberResponse(Member member);
+    List<MemberResponse> membersToMemberResponses(List<Member> members);
 }
